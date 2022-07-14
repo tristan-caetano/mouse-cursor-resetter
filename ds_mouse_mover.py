@@ -1,27 +1,28 @@
 # Tristan Caetano
 # DS Mouse Mover
 
-# Importing libraries
+# Importing Libraries
 import pyautogui as pag
 import keyboard
-    
+
 # Function to reset the mouse position
 def reset_pos(center, hold_click):
     # CENTER 1437, 525
     if hold_click:
-            pag.mouseUp()
+        pag.mouseUp()
 
     pag.moveTo(center[0], center[1])
 
     if hold_click:
-            pag.mouseDown()
-    
+        pag.mouseDown()
+
+
 # Setting screen limits for the location of the game
 def screen_loop(limits, stop_char, center_point, hold_click):
 
     # TOP Y = 164
     tlimitY = limits[0]
-        
+
     # BOTTOM Y = 936
     blimitY = limits[1]
 
@@ -33,7 +34,7 @@ def screen_loop(limits, stop_char, center_point, hold_click):
 
     # If the centerpoint is to be set automatically
     if center_point == -1:
-        center_point = [((llimitX + rlimitX)/2), ((tlimitY + blimitY)/2)]
+        center_point = [((llimitX + rlimitX) / 2), ((tlimitY + blimitY) / 2)]
 
     # Value that keeps the loop going until m is pressed
     keep_loop = True
@@ -68,7 +69,3 @@ def screen_loop(limits, stop_char, center_point, hold_click):
         # If m is pressed, program stops
         if keyboard.is_pressed(stop_char):
             keep_loop = False
-
-# Function call to start loop
-#screen_loop()
-    
